@@ -12,8 +12,10 @@ pipeline{
 			}
 		}
 		stage ("waiting grid") {
-			echo 'Waiting 40 seconds'
-		  	sleep 40 // seconds
+			steps{
+				echo 'Waiting 40 seconds'
+		  		sleep 40 // seconds
+			}
 		}
 		stage("Run Test"){
 			steps{
