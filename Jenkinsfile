@@ -8,7 +8,7 @@ pipeline{
 		}
 		stage("Start Grid and test"){
 			steps{
-				sh "docker-compose up -d"
+				sh "docker-compose up"
 			}
 		}
 	}
