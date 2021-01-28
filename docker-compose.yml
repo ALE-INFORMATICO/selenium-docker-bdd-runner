@@ -95,14 +95,3 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
     ports:
       - "7100-7110:5900"
-
-  dockerbdd:
-    image: alejandrocontreras/dockerbdd
-    depends_on:
-      - selenium-event-bus 
-      - selenium-sessions 
-      - selenium-session-queuer 
-      - selenium-distributor 
-      - selenium-router
-      - chrome
-      - firefox
