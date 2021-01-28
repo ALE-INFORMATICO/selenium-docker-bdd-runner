@@ -14,12 +14,12 @@ pipeline{
 		stage ("waiting grid") {
 			steps{
 				echo 'Waiting 40 seconds'
-		  		sleep 40 // seconds
+		  		sleep 30 // seconds
 			}
 		}
 		stage("Run Test"){
 			steps{
-				sh "docker run alejandrocontreras/dockerbdd -e HUB_HOST=162.222.178.134"
+				sh "docker run -e HUB_HOST=162.222.178.134 alejandrocontreras/dockerbdd"
 			}
 		}
 	}
