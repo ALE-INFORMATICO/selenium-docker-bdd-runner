@@ -99,6 +99,11 @@ services:
   dockerbdd:
     image: alejandrocontreras/dockerbdd
     depends_on:
+      - selenium-event-bus 
+      - selenium-sessions 
+      - selenium-session-queuer 
+      - selenium-distributor 
+      - selenium-router
       - chrome
       - firefox
     environment:
