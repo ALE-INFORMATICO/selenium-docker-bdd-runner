@@ -10,10 +10,6 @@ services:
       - "4442:4442"
       - "4443:4443"
       - "5557:5557"
-    environment:
-      - DOCKER_HOST=tcp://docker:2376
-      - DOCKER_CERT_PATH=/certs/client
-      - DOCKER_TLS_VERIFY=1
 
   selenium-sessions:
     image: selenium/sessions:4.0.0-beta-1-prerelease-20210114
@@ -26,9 +22,6 @@ services:
       - SE_EVENT_BUS_HOST=selenium-event-bus
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - DOCKER_HOST=tcp://docker:2376
-      - DOCKER_CERT_PATH=/certs/client
-      - DOCKER_TLS_VERIFY=1
 
   selenium-session-queuer:
     image: selenium/session-queuer:4.0.0-beta-1-prerelease-20210114
@@ -41,9 +34,6 @@ services:
       - SE_EVENT_BUS_HOST=selenium-event-bus
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - DOCKER_HOST=tcp://docker:2376
-      - DOCKER_CERT_PATH=/certs/client
-      - DOCKER_TLS_VERIFY=1
 
   selenium-distributor:
     image: selenium/distributor:4.0.0-beta-1-prerelease-20210114
@@ -62,9 +52,6 @@ services:
       - SE_SESSIONS_MAP_PORT=5556
       - SE_SESSION_QUEUER_HOST=selenium-session-queuer
       - SE_SESSION_QUEUER_PORT=5559
-      - DOCKER_HOST=tcp://docker:2376
-      - DOCKER_CERT_PATH=/certs/client
-      - DOCKER_TLS_VERIFY=1
 
   selenium-router:
     image: selenium/router:4.0.0-beta-1-prerelease-20210114
@@ -82,9 +69,6 @@ services:
       - SE_SESSIONS_MAP_PORT=5556
       - SE_SESSION_QUEUER_HOST=selenium-session-queuer
       - SE_SESSION_QUEUER_PORT=5559
-      - DOCKER_HOST=tcp://docker:2376
-      - DOCKER_CERT_PATH=/certs/client
-      - DOCKER_TLS_VERIFY=1
 
   chrome:
     image: selenium/node-chrome:4.0.0-beta-1-prerelease-20210114
@@ -96,9 +80,6 @@ services:
       - SE_EVENT_BUS_HOST=selenium-event-bus
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - DOCKER_HOST=tcp://docker:2376
-      - DOCKER_CERT_PATH=/certs/client
-      - DOCKER_TLS_VERIFY=1
     ports:
       - "6900-7000:5900"
 
@@ -112,8 +93,21 @@ services:
       - SE_EVENT_BUS_HOST=selenium-event-bus
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - DOCKER_HOST=tcp://docker:2376
-      - DOCKER_CERT_PATH=/certs/client
-      - DOCKER_TLS_VERIFY=1
     ports:
       - "7100-7110:5900"
+
+  dockerbdd:
+    image: alejandrocontreras/dockerbdd
+    depends_on: 
+      - selenium-event-bus 
+      - selenium-sessions 
+      - selenium-session-queuer 
+      - selenium-distributor 
+      - selenium-router 
+      - chrome 
+      - firefox 
+    environment:
+      - HUB_HOST=162.222.178.134
+    volumes:
+      - ./output/book-result:/usr/share/udemy/test-output
+      

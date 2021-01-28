@@ -8,7 +8,7 @@ pipeline{
 		}
 		stage("Start Grid"){
 			steps{
-				sh "docker-compose up -d"
+				sh "docker-compose up -d selenium-event-bus selenium-sessions selenium-session-queuer selenium-distributor selenium-router chrome firefox"
 			}
 		}
 		stage ("waiting grid") {
@@ -19,7 +19,7 @@ pipeline{
 		}
 		stage("Run Test"){
 			steps{
-				sh "docker run -e HUB_HOST=162.222.178.134 alejandrocontreras/dockerbdd"
+				sh "docker-compose up dockerbdd"
 			}
 		}
 	}
