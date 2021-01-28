@@ -13,7 +13,7 @@ pipeline{
 		}
 		stage("Run Test"){
 			steps{
-				sh "docker-compose up dockerbdd"
+				sh "docker-compose up dockerbdd -e HUB_HOST=162.222.178.134"
 			}
 		}
 	}

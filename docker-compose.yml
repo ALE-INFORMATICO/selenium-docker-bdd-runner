@@ -107,4 +107,4 @@ services:
       - chrome
       - firefox
     environment:
-      - HUB_HOST=162.222.178.134
+      - HUB_HOST=$HUB_HOST
