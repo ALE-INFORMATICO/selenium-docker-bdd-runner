@@ -106,5 +106,3 @@ services:
       - selenium-router
       - chrome
       - firefox
-    environment:
-      - HUB_HOST=$HUB_HOST
