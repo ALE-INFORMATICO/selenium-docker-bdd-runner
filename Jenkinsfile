@@ -11,6 +11,10 @@ pipeline{
 				sh "docker-compose up -d"
 			}
 		}
+		stage ("waiting grid") {
+			echo 'Waiting 40 seconds'
+		  	sleep 40 // seconds
+		}
 		stage("Run Test"){
 			steps{
 				sh "docker run alejandrocontreras/dockerbdd -e HUB_HOST=162.222.178.134"
