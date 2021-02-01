@@ -32,7 +32,7 @@ pipeline{
                             skippedStepsNumber: 1,
                             failedStepsNumber: 1,
                             reportTitle: 'Reporte personalizado',
-                            jsonReportDirectory: './report.json',
+                            jsonReportDirectory: '.',
                             fileIncludePattern: '**/*.json',
                             sortingMethod: 'ALPHABETICAL',
                             trendsLimit: 100
