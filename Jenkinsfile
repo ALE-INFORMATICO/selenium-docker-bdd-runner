@@ -27,7 +27,6 @@ pipeline{
 		always{
 			sh "docker-compose down"
 			sh "pwd"
-			sh "cd output"
 			sh "ls -al"
 			cucumber buildStatus: 'UNSTABLE',
                             failedFeaturesNumber: 1,
