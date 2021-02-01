@@ -26,6 +26,7 @@ pipeline{
 	post{
 		always{
 			sh "docker-compose down"
+			sh "pwd"
 			cucumber buildStatus: 'UNSTABLE',
                             failedFeaturesNumber: 1,
                             failedScenariosNumber: 1,
