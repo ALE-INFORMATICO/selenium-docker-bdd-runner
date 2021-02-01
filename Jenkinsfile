@@ -29,8 +29,7 @@ pipeline{
 			sh "docker-compose down"
 			sh "pwd"
 			sh "ls -al"
-			sh "cd /home/test24122020/jenkins/workspace/test_runner/output/"
-			sh "ls -al"
+			sh "cd /home/test24122020/jenkins/workspace/test_runner/output/ && ls -al"
 			cucumber buildStatus: 'UNSTABLE',
                             failedFeaturesNumber: 1,
                             failedScenariosNumber: 1,
