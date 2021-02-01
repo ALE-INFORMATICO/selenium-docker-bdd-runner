@@ -26,6 +26,16 @@ pipeline{
 	post{
 		always{
 			sh "docker-compose down"
+			cucumber buildStatus: 'UNSTABLE',
+                            failedFeaturesNumber: 1,
+                            failedScenariosNumber: 1,
+                            skippedStepsNumber: 1,
+                            failedStepsNumber: 1,
+                            reportTitle: 'My report',
+                            jsonReportDirectory: './',
+                            fileIncludePattern: '**/*.json',
+                            sortingMethod: 'ALPHABETICAL',
+                            trendsLimit: 100
 		}
 	}
 }
