@@ -3,6 +3,7 @@ pipeline{
 	stages{
 		stage("Pull Latest Image"){
 			steps{
+				sh "docker-compose down -v"
 				sh "docker pull alejandrocontreras/dockerbdd"
 			}
 		}
