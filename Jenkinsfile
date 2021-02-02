@@ -4,7 +4,7 @@ pipeline{
 		stage("Pull Latest Image"){
 			steps{
 				sh "docker-compose down -v"
-				sh "rm -r output/ volume/"
+				sh "sudo rm -r output/ volume/"
 				sh "docker pull alejandrocontreras/dockerbdd"
 			}
 		}
