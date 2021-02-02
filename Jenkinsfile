@@ -12,12 +12,6 @@ pipeline{
 				sh "docker-compose up -d selenium-event-bus selenium-sessions selenium-session-queuer selenium-distributor selenium-router chrome firefox"
 			}
 		}
-		stage ("waiting grid") {
-			steps{
-				echo 'Waiting 10 seconds'
-		  		sleep 10
-			}
-		}
 		stage("Run Test"){
 			steps{
 				sh "docker-compose up dockerbdd"
