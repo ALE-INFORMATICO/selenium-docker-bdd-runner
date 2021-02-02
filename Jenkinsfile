@@ -35,7 +35,7 @@ pipeline{
                             skippedStepsNumber: 1,
                             failedStepsNumber: 1,
                             reportTitle: 'Reporte personalizado',
-                            jsonReportDirectory: '/usr/share/udemy/reporte/',
+                            jsonReportDirectory: '/home/test24122020/jenkins/workspace/test_runner',
                             fileIncludePattern: '**/*.json',
                             sortingMethod: 'ALPHABETICAL',
                             trendsLimit: 100
