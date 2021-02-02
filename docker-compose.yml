@@ -109,4 +109,4 @@ services:
     environment:
       - HUB_HOST=162.222.178.134
     volumes:
-      - "$PWD/":/usr/share/udemy
+      - /home/test24122020/jenkins/workspace/test_runner:/usr/share/udemy
