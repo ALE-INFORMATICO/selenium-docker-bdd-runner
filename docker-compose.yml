@@ -109,4 +109,4 @@ services:
     environment:
       - HUB_HOST=162.222.178.134
     volumes:
-      - "$PWD"/resultados:/usr/share/udemy
+      - "$PWD/":/usr/share/udemy
