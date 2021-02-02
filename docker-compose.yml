@@ -108,6 +108,4 @@ services:
       - firefox 
     environment:
       - HUB_HOST=162.222.178.134
-    volumes:
-      - ./output/book-result:/usr/share/udemy/test-output
       
