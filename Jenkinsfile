@@ -28,7 +28,7 @@ pipeline{
 		always{
 			sh "docker-compose down"
 			sh "pwd"
-			sh "cd /home/test24122020/jenkins/workspace/test_runner/volume && ls -al"
+			sh "ls -al"
 			cucumber buildStatus: 'UNSTABLE',
                             failedFeaturesNumber: 1,
                             failedScenariosNumber: 1,
